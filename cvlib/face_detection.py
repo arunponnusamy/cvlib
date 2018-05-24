@@ -4,6 +4,8 @@
 # import necessary packages
 import cv2
 import numpy as np
+import os
+import pkg_resources
 
 
 def detect_face(image, threshold=0.5):
@@ -11,9 +13,13 @@ def detect_face(image, threshold=0.5):
     if image is None:
         return None
 
+    # access resource files inside package
+    prototxt = pkg_resources.resource_filename(__name__, '/data/deploy.prototxt')
+    caffemodel = pkg_resources.resource_filename(__name__,
+                                            '/data/res10_300x300_ssd_iter_140000.caffemodel')
+    
     # read pre-trained wieights
-    net = cv2.dnn.readNetFromCaffe("./data/deploy.prototxt",
-                                   "res10_300x300_ssd_iter_140000.caffemodel")
+    net = cv2.dnn.readNetFromCaffe(prototxt, caffemodel)
     (h, w) = image.shape[:2]
 
     # preprocessing input image
