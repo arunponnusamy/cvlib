@@ -14,16 +14,16 @@ def detect_face(image, threshold=0.5):
         return None
 
     # access resource files inside package
-    prototxt = pkg_resources.resource_filename(__name__, '/data/deploy.prototxt')
+    prototxt = pkg_resources.resource_filename(__name__, os.path.sep + 'data' + os.path.sep + 'deploy.prototxt')
     caffemodel = pkg_resources.resource_filename(__name__,
-                                            '/data/res10_300x300_ssd_iter_140000.caffemodel')
+                                            os.path.sep + 'data' + os.path.sep + 'res10_300x300_ssd_iter_140000.caffemodel')
     
     # read pre-trained wieights
     net = cv2.dnn.readNetFromCaffe(prototxt, caffemodel)
     (h, w) = image.shape[:2]
 
     # preprocessing input image
-    blob = cv2.dnn.blobFromImage(image, 1.0, (300,300), (104.0,177.0,123.0))
+    blob = cv2.dnn.blobFromImage(cv2.resize(image, (300,300)), 1.0, (300,300), (104.0,177.0,123.0))
     net.setInput(blob)
 
     # apply face detection
