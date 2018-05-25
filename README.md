@@ -3,8 +3,10 @@ A high level easy-to-use open source Computer Vision library for Python.
 
 ## Installation
 Provided the below python packages are installed, cvlib is completely pip installable.
-* numpy
-* opencv-python
+* numpy 
+* opencv-python 
+
+`pip install numpy opencv-python`
 
 `pip install cvlib`
 
