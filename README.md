@@ -20,3 +20,5 @@ import cvlib as cv
 faces, confidences = cv.detect_face(image) 
 ```
 Seriously, that's all it takes to do face detection with `cvlib`. Underneath it is using OpenCV's `dnn` module with a pre-trained caffemodel to detect faces. 
+
+Checkout `face_detection.py` in `examples` directory for the complete code. 
