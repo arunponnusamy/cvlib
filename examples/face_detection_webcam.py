@@ -7,7 +7,6 @@
 # import necessary packages
 import cvlib as cv
 import cv2
-import os 
 
 # open webcam
 webcam = cv2.VideoCapture(0)
