@@ -13,6 +13,8 @@ Provided the below python packages are installed, cvlib is completely pip instal
 To upgrade to the newest version
 `pip install --upgrade cvlib`
 
+**Note: Python 2.x is not supported** 
+
 ## Face detection
 Detecting faces in an image is as simple as just calling the function `detect_face()`. It will return the bounding box corners and corresponding confidence for all the faces detected.
 ### Example :
