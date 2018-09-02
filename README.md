@@ -1,3 +1,5 @@
+[![Downloads](http://pepy.tech/badge/cvlib)](http://pepy.tech/project/cvlib)
+
 # cvlib 
 A high level easy-to-use open source Computer Vision library for Python.
 
