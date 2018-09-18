@@ -1,11 +1,11 @@
 from setuptools import setup
 
 setup(name='cvlib',
-      version='0.1.3',
+      version='0.1.5',
       description='A high level, easy to use, open source computer vision library for python',
       url='https://github.com/arunponnusamy/cvlib.git',
       author='Arun Ponnusamy',
-      author_email='arunponnusamy93@gmail.com',
+      author_email='hello@arunponnusamy.com',
       license='MIT',
       packages=['cvlib'],
       include_package_data=True,

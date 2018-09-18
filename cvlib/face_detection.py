@@ -5,7 +5,7 @@
 import cv2
 import numpy as np
 import os
-import pkg_resources
+from pkg_resources import resource_filename, Requirement
 
 
 def detect_face(image, threshold=0.5):
@@ -14,9 +14,10 @@ def detect_face(image, threshold=0.5):
         return None
 
     # access resource files inside package
-    prototxt = pkg_resources.resource_filename(__name__, os.path.sep + 'data' + os.path.sep + 'deploy.prototxt')
-    caffemodel = pkg_resources.resource_filename(__name__,
-                                            os.path.sep + 'data' + os.path.sep + 'res10_300x300_ssd_iter_140000.caffemodel')
+    prototxt = resource_filename(Requirement.parse('cvlib'),
+                                               'cvlib' + os.path.sep + 'data' + os.path.sep + 'deploy.prototxt')
+    caffemodel = resource_filename(Requirement.parse('cvlib'),
+                                            'cvlib' + os.path.sep + 'data' + os.path.sep + 'res10_300x300_ssd_iter_140000.caffemodel')
     
     # read pre-trained wieights
     net = cv2.dnn.readNetFromCaffe(prototxt, caffemodel)
