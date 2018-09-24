@@ -46,7 +46,7 @@ from cvlib.object_detection import draw_bbox
 
 bbox, label, conf = cv.detect_common_objects(img)
 
-output_image = draw_bbox(img.copy(), bbox, label, conf)
+output_image = draw_bbox(img, bbox, label, conf)
 ```
 Underneath it uses [YOLOv3](https://pjreddie.com/darknet/yolo/) model trained on [COCO dataset](http://cocodataset.org/) capable of detecting 80 [common objects](https://github.com/arunponnusamy/object-detection-opencv/blob/master/yolov3.txt) in context.
 
