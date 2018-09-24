@@ -9,7 +9,6 @@ import cvlib as cv
 from cvlib.object_detection import draw_bbox
 import sys
 import cv2
-import os 
 
 # read input image
 image = cv2.imread(sys.argv[1])
@@ -19,8 +18,8 @@ bbox, label, conf = cv.detect_common_objects(image)
 
 print(bbox, label, conf)
 
-# draw bounding box over objects
-out = draw_bbox(image.copy(), bbox, label, conf)
+# draw bounding box over detected objects
+out = draw_bbox(image, bbox, label, conf)
 
 # display output
 # press any key to close window           
