@@ -29,7 +29,7 @@ faces, confidences = cv.detect_face(image)
 ```
 Seriously, that's all it takes to do face detection with `cvlib`. Underneath it is using OpenCV's `dnn` module with a pre-trained caffemodel to detect faces. 
 
-Checkout `face_detection.py` in `examples` directory on github for the complete code. 
+Checkout the github repo to learn more. 
 
 
 ## Object detection
@@ -47,14 +47,13 @@ output_image = draw_bbox(img, bbox, label, conf)
 ```
 Underneath it uses [YOLOv3](https://pjreddie.com/darknet/yolo/) model trained on [COCO dataset](http://cocodataset.org/) capable of detecting 80 [common objects](https://github.com/arunponnusamy/object-detection-opencv/blob/master/yolov3.txt) in context.
 
-Checkout `object_detection.py` in `examples` directory on github for the complete code. 
+Checkout the github repo to learn more. 
 
-
-## Issues
+### Issues
 Feel free to create a new [issue](https://github.com/arunponnusamy/cvlib/issues) on [github](https://github.com/arunponnusamy/cvlib) if you are facing any difficulty.
 
-## License
+### License
 cvlib is released under MIT License.
 
-## Contact
+### Contact
 Feel free to drop an [email](http://arunponnusamy.com/contact) or reach out on [Twitter](twitter.com/ponnusamy_arun). 
