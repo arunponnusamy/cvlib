@@ -1,4 +1,4 @@
-[![Downloads](http://pepy.tech/badge/cvlib)](http://pepy.tech/project/cvlib)
+[![Downloads](http://pepy.tech/badge/cvlib)](http://pepy.tech/project/cvlib) [![Join the chat at https://gitter.im/cv_lib/Lobby](https://badges.gitter.im/cv_lib/Lobby.svg)](https://gitter.im/cv_lib/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # cvlib 
 A high level easy-to-use open source Computer Vision library for Python.
