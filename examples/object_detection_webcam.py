@@ -41,7 +41,7 @@ while webcam.isOpened():
     out = draw_bbox(frame, bbox, label, conf)
 
     # display output
-    cv2.imshow("Real-time object detection", frame)
+    cv2.imshow("Real-time object detection", out)
 
     # press "Q" to stop
     if cv2.waitKey(1) & 0xFF == ord('q'):
