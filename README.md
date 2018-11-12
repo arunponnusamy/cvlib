@@ -55,3 +55,6 @@ Checkout `object_detection.py` in `examples` directory for the complete code.
 ### Sample output :
 
 ![](examples/images/object_detection_output.jpg)
+
+## License
+cvlib is released under MIT license.
