@@ -9,13 +9,20 @@ Provided the below python packages are installed, cvlib is completely pip instal
 * opencv-python 
 * requests
 * progressbar
+* pillow
+* tensorflow
+* keras
 
-`pip install numpy opencv-python requests progressbar`
+Install the required packages using the below command
+
+`pip install -r requirements.txt`
 
 `pip install cvlib`
 
 To upgrade to the newest version
 `pip install --upgrade cvlib`
+
+If you are using a GPU, edit the `requirements.txt` file to install `tensorflow-gpu` instead of `tensorflow`.
 
 **Note: Python 2.x is not supported** 
 
@@ -34,6 +41,21 @@ Checkout `face_detection.py` in `examples` directory for the complete code.
 ### Sample output :
 
 ![](examples/images/face_detection_output.jpg)
+
+## Gender detection
+Once face is detected, it can be passed on to `detect_gender()` function to recognize gender. It will return the labels (man, woman) and associated probabilities. 
+
+### Example
+
+`label, confidence = cv.detect_gender(face) `
+
+Underneath `cvlib` is using a [pre-trained](https://github.com/arunponnusamy/gender-detection-keras) keras model to detect gender from face. The accuracy is not so great at this point. It still makes mistakes. Working on adding a more accurate model. 
+
+Checkout `gender_detection.py` in `examples` directory for the complete code. 
+
+### Sample output :
+
+![](examples/images/gender_detection_output.jpg)
 
 ## Object detection
 Detecting common objects in the scene is enabled through a single function call `detect_common_objects()`. It will return the bounding box co-ordinates, corrensponding labels and confidence scores for the detected objects in the image.
