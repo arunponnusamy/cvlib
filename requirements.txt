@@ -1,0 +1,7 @@
+numpy
+opencv-python
+requests
+progressbar
+pillow
+tensorflow
+keras
