@@ -4,6 +4,7 @@ A high level easy-to-use open source Computer Vision library for Python.
 It was developed with a focus on enabling easy and fast experimentation. Being able to go from an idea to prototype with least amount of delay is key to doing good research.
 
 Guiding principles of cvlib are heavily inspired from [Keras](https://keras.io) (deep learning library). 
+* simplicity
 * user friendliness
 * modularity and 
 * extensibility
@@ -14,10 +15,20 @@ Provided the below python packages are installed, cvlib is completely pip instal
 * opencv-python 
 * requests
 * progressbar
+* pillow
+* tensorflow
+* keras
 
-`pip install numpy opencv-python requests progressbar`
+Install the required packages using the below command 
+
+`pip install -r requirements.txt`
 
 `pip install cvlib`
+
+To upgrade to the newest version
+`pip install --upgrade cvlib`
+
+If you are using a GPU, edit the `requirements.txt` file (available in the [github](https://github.com/arunponnusamy/cvlib) repo) to install `tensorflow-gpu` instead of `tensorflow`.
 
 ## Face detection
 Detecting faces in an image is as simple as just calling the function `detect_face()`. It will return the bounding box corners and corresponding confidence for all the faces detected.
@@ -30,6 +41,17 @@ faces, confidences = cv.detect_face(image)
 Seriously, that's all it takes to do face detection with `cvlib`. Underneath it is using OpenCV's `dnn` module with a pre-trained caffemodel to detect faces. 
 
 Checkout the github repo to learn more. 
+
+## Gender detection
+Once face is detected, it can be passed on to `detect_gender()` function to recognize gender. It will return the labels (man, woman) and associated probabilities. 
+
+### Example
+
+`label, confidence = cv.detect_gender(face) `
+
+Underneath `cvlib` is using a [pre-trained](https://github.com/arunponnusamy/gender-detection-keras) keras model to detect gender from face. The accuracy is not so great at this point. It still makes mistakes. Working on adding a more accurate model. 
+
+Checkout `gender_detection.py` in `examples` directory for the complete code. 
 
 
 ## Object detection
