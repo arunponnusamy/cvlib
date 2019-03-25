@@ -24,7 +24,7 @@ To upgrade to the newest version
 
 If you are using a GPU, edit the `requirements.txt` file to install `tensorflow-gpu` instead of `tensorflow`.
 
-**Note: Python 2.x is not supported** 
+**Note: Compatability with Python 2.x is not officially tested.** 
 
 ## Face detection
 Detecting faces in an image is as simple as just calling the function `detect_face()`. It will return the bounding box corners and corresponding confidence for all the faces detected.
