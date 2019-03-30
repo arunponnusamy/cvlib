@@ -55,7 +55,7 @@ def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf=False):
 
     return img
     
-def detect_common_objects(image):
+def detect_common_objects(image, confidence=0.5, nms_thresh=0.3):
 
     Height, Width = image.shape[:2]
     scale = 0.00392
@@ -96,15 +96,13 @@ def detect_common_objects(image):
     class_ids = []
     confidences = []
     boxes = []
-    conf_threshold = 0.5
-    nms_threshold = 0.4
 
     for out in outs:
         for detection in out:
             scores = detection[5:]
             class_id = np.argmax(scores)
-            confidence = scores[class_id]
-            if confidence > 0.5:
+            max_conf = scores[class_id]
+            if max_conf > confidence:
                 center_x = int(detection[0] * Width)
                 center_y = int(detection[1] * Height)
                 w = int(detection[2] * Width)
@@ -112,11 +110,11 @@ def detect_common_objects(image):
                 x = center_x - w / 2
                 y = center_y - h / 2
                 class_ids.append(class_id)
-                confidences.append(float(confidence))
+                confidences.append(float(max_conf))
                 boxes.append([x, y, w, h])
 
 
-    indices = cv2.dnn.NMSBoxes(boxes, confidences, conf_threshold, nms_threshold)
+    indices = cv2.dnn.NMSBoxes(boxes, confidences, confidence, nms_thresh)
 
     bbox = []
     label = []
