@@ -75,7 +75,7 @@ Underneath it uses [YOLOv3](https://pjreddie.com/darknet/yolo/) model trained on
 Checkout `object_detection.py` in `examples` directory for the complete code. 
 
 ### Real time object detection
-`YOLOv3` is actually a heavy model to run on CPU. If you are working with real time webcam / video feed and doesn't have GPU, try to use `tiny yolo` which is a smaller version of the original YOLO model. It's significantly faster but less accurate. 
+`YOLOv3` is actually a heavy model to run on CPU. If you are working with real time webcam / video feed and doesn't have GPU, try using `tiny yolo` which is a smaller version of the original YOLO model. It's significantly fast but less accurate. 
 
 ```
 bbox, label, conf = cv.detect_common_objects(img, confidence=0.25, model='yolov3-tiny')
