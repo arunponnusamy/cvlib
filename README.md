@@ -5,12 +5,38 @@ A high level easy-to-use open source Computer Vision library for Python.
 
 ## Installation
 
+### Installing dependencies
+
+Provided the below python packages are installed, cvlib is completely pip installable.
+
+* OpenCV
+* TensorFlow
+
+If you don't have them already installed, you can install through pip
+
+`pip install opencv-python tensorflow` 
+
+### Optional
+or you can compile them from source if you want to enable optimizations for your specific hardware for better performance.
+If you are working with GPU, you can install `tensorflow-gpu` package through `pip`. Make sure you have the necessary Nvidia drivers  installed preoperly (CUDA ToolKit, CuDNN etc). 
+
+If you are not sure, just go with the cpu-only `tensorflow` package.
+
+### Installing cvlib
+
 `pip install cvlib`
 
 To upgrade to the newest version
 `pip install --upgrade cvlib`
 
-If you are using a GPU, `pip install cvlib[gpu]`
+### Optional
+If you want to build cvlib from source, clone this repository and run the below commands.
+```
+git clone https://github.com/arunponnusamy/cvlib.git
+cd cvlib
+python setup.py sdist
+pip install .
+```
 
 **Note: Compatability with Python 2.x is not officially tested.**
 
