@@ -29,7 +29,7 @@ def detect_gender(face):
 
         print("[INFO] initializing ... ")
         
-        dwnld_link = "https://s3.ap-south-1.amazonaws.com/arunponnusamy/pre-trained-weights/gender_detection.model"
+        dwnld_link = "https://github.com/arunponnusamy/cvlib/releases/download/v0.2.0/gender_detection.model"
 
         model_path = get_file("gender_detection.model", dwnld_link,
                               cache_dir= os.path.expanduser('~') + os.path.sep + '.cvlib' + os.path.sep + 'pre-trained') 
