@@ -16,7 +16,7 @@ If you don't have them already installed, you can install through pip
 
 `pip install opencv-python tensorflow` 
 
-### Optional
+#### Optional
 or you can compile them from source if you want to enable optimizations for your specific hardware for better performance.
 If you are working with GPU, you can install `tensorflow-gpu` package through `pip`. Make sure you have the necessary Nvidia drivers  installed preoperly (CUDA ToolKit, CuDNN etc). 
 
@@ -29,7 +29,7 @@ If you are not sure, just go with the cpu-only `tensorflow` package.
 To upgrade to the newest version
 `pip install --upgrade cvlib`
 
-### Optional
+#### Optional
 If you want to build cvlib from source, clone this repository and run the below commands.
 ```
 git clone https://github.com/arunponnusamy/cvlib.git
