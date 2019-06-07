@@ -104,5 +104,6 @@ Check out the [example](examples/object_detection_webcam_yolov3_tiny.py) to lear
 cvlib is released under MIT license.
 
 ## Help
-For bugs and feature requests, feel free to file a [GitHub issue](https://github.com/arunponnusamy/cvlib/issues). (Make sure to check if the issue has been filed already)
+For bugs and feature requests, feel free to file a [GitHub issue](https://github.com/arunponnusamy/cvlib/issues). (Make sure to check if the issue has been filed already) 
+
 For usage related how-to questions, please create a new question on [StackOverflow](https://stackoverflow.com/questions/tagged/cvlib) with the tag `cvlib`.
