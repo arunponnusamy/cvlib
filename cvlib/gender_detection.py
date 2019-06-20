@@ -32,7 +32,7 @@ def detect_gender(face):
         dwnld_link = "https://github.com/arunponnusamy/cvlib/releases/download/v0.2.0/gender_detection.model"
 
         model_path = get_file("gender_detection.model", dwnld_link,
-                              cache_dir= os.path.expanduser('~') + os.path.sep + '.cvlib' + os.path.sep + 'pre-trained') 
+                              cache_subdir= os.path.expanduser('~') + os.path.sep + '.cvlib' + os.path.sep + 'pre-trained') 
 
         model = load_model(model_path)
 
