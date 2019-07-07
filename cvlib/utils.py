@@ -2,6 +2,9 @@ import requests
 import progressbar as pb
 import os
 import cv2
+import imageio
+from imutils import paths
+import numpy as np
 
 def download_file(url, file_name, dest_dir):
 
@@ -79,3 +82,28 @@ def get_frames(video_file, save_dir=None, save_prefix='', ext='jpg'):
     video.release()
 
     return frames
+
+
+def animate(src, gif_name, reshape=None, fps=25):
+
+    if not isinstance(src, list):
+
+        if os.path.isdir(src):
+
+            src = list(paths.list_images(src))
+
+            for idx, image in enumerate(src):
+                src[idx] = cv2.imread(image)
+
+    if reshape:
+
+        for idx, image in enumerate(src):
+            src[idx] = cv2.resize(image, reshape)
+
+    for idx, image in enumerate(src):
+            src[idx] = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    src = np.array(src)
+    
+    imageio.mimsave(gif_name, src, fps=fps)
+  

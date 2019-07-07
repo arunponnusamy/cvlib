@@ -11,5 +11,6 @@ setup(name='cvlib',
       packages=['cvlib'],
       include_package_data=True,
       zip_safe=False,
-      install_requires=['numpy', 'progressbar', 'requests', 'pillow', 'keras']
+      install_requires=['numpy', 'progressbar', 'requests', 'pillow', 'keras',
+                        'imageio', 'imutils']
       )
