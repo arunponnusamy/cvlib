@@ -1,6 +1,7 @@
 import requests
 import progressbar as pb
 import os
+import cv2
 
 def download_file(url, file_name, dest_dir):
 
@@ -40,4 +41,41 @@ def download_file(url, file_name, dest_dir):
 
     return full_path_to_file
     
+
+def get_frames(video_file, save_dir=None, save_prefix='', ext='jpg'):
+
+    video = cv2.VideoCapture(video_file)
+
+    if not video.isOpened():
+
+        print("[ERROR] Could not open video file ", video_file)
+        video.release()
+        return
+
+    frames = []
+    
+    frame_count = 0
+
+    while video.isOpened():
+
+        status, frame = video.read()
+
+        if not status:
+            break
         
+        frames.append(frame)
+
+        if save_dir:
+
+            frame_count += 1
+            
+            out_file = save_dir + os.path.sep + save_prefix + \
+                        'frame_' + str(frame_count) + '.' + ext
+
+            print('[INFO] Writing file to .. ', out_file)
+
+            cv2.imwrite(out_file, frame)
+            
+    video.release()
+
+    return frames
