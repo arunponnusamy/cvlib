@@ -7,20 +7,33 @@ import numpy as np
 import os
 from pkg_resources import resource_filename, Requirement
 
+is_initialized = False
+prototxt = None
+caffemodel = None
+net = None
 
 def detect_face(image, threshold=0.5):
     
     if image is None:
         return None
 
-    # access resource files inside package
-    prototxt = resource_filename(Requirement.parse('cvlib'),
-                                               'cvlib' + os.path.sep + 'data' + os.path.sep + 'deploy.prototxt')
-    caffemodel = resource_filename(Requirement.parse('cvlib'),
-                                            'cvlib' + os.path.sep + 'data' + os.path.sep + 'res10_300x300_ssd_iter_140000.caffemodel')
+    global is_initialized
+    global prototxt
+    global caffemodel
+    global net
     
-    # read pre-trained wieights
-    net = cv2.dnn.readNetFromCaffe(prototxt, caffemodel)
+    if not is_initialized:
+
+        # access resource files inside package
+        prototxt = resource_filename(Requirement.parse('cvlib'),
+                                                   'cvlib' + os.path.sep + 'data' + os.path.sep + 'deploy.prototxt')
+        caffemodel = resource_filename(Requirement.parse('cvlib'),
+                                                'cvlib' + os.path.sep + 'data' + os.path.sep + 'res10_300x300_ssd_iter_140000.caffemodel')
+        
+        # read pre-trained wieights
+        net = cv2.dnn.readNetFromCaffe(prototxt, caffemodel)
+        is_initialized = True
+
     (h, w) = image.shape[:2]
 
     # preprocessing input image
