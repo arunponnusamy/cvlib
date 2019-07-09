@@ -112,6 +112,13 @@ Optionally you can pass in a directory path to save all the frames to disk.
 frames = cv.get_frames('~/Downloads/demo.mp4', '~/Downloads/demo_frames/')
 ```
 
+### Creating gif
+`animate( )` method lets you create gif from a list of images. Just pass a list of images or path to a directory containing images and output gif name as arguments to the method, it will create a gif out of the images and save it to disk for you.
+
+```
+cv.animate(frames, '~/Documents/frames.gif')
+```
+
 ## License
 cvlib is released under MIT license.
 
