@@ -100,6 +100,18 @@ Check out the [example](examples/object_detection_webcam_yolov3_tiny.py) to lear
 
 ![](examples/images/object_detection_output.jpg)
 
+## Utils
+### Video to frames
+`get_frames( )` method can be helpful when you want to grab all the frames from a video. Just pass the path to the video, it will return all the frames in a list. Each frame in the list is a numpy array.
+```
+import cvlib as cv
+frames = cv.get_frames('~/Downloads/demo.mp4')
+```
+Optionally you can pass in a directory path to save all the frames to disk.
+```
+frames = cv.get_frames('~/Downloads/demo.mp4', '~/Downloads/demo_frames/')
+```
+
 ## License
 cvlib is released under MIT license.
 
