@@ -1,5 +1,5 @@
 # cvlib 
-A high level easy-to-use open source Computer Vision library for Python.
+A simple, high level, easy-to-use open source Computer Vision library for Python.
 
 It was developed with a focus on enabling easy and fast experimentation. Being able to go from an idea to prototype with least amount of delay is key to doing good research.
 
@@ -11,24 +11,19 @@ Guiding principles of cvlib are heavily inspired from [Keras](https://keras.io) 
 
 ## Installation
 Provided the below python packages are installed, cvlib is completely pip installable.
-* numpy 
-* opencv-python 
-* requests
-* progressbar
-* pillow
-* tensorflow
-* keras
+* OpenCV
+* Tensorflow
 
-Install the required packages using the below command 
+If you don't have them already installed, you can install through pip
 
-`pip install -r requirements.txt`
+`pip install opencv-python tensorflow`
 
 `pip install cvlib`
 
 To upgrade to the newest version
 `pip install --upgrade cvlib`
 
-If you are using a GPU, edit the `requirements.txt` file (available in the [github](https://github.com/arunponnusamy/cvlib) repo) to install `tensorflow-gpu` instead of `tensorflow`.
+Checkout the [github](https://github.com/arunponnusamy/cvlib) page for complete instructions.
 
 ## Face detection
 Detecting faces in an image is as simple as just calling the function `detect_face()`. It will return the bounding box corners and corresponding confidence for all the faces detected.
@@ -69,13 +64,12 @@ output_image = draw_bbox(img, bbox, label, conf)
 ```
 Underneath it uses [YOLOv3](https://pjreddie.com/darknet/yolo/) model trained on [COCO dataset](http://cocodataset.org/) capable of detecting 80 [common objects](https://github.com/arunponnusamy/object-detection-opencv/blob/master/yolov3.txt) in context.
 
-Checkout the github repo to learn more. 
-
-### Issues
-Feel free to create a new [issue](https://github.com/arunponnusamy/cvlib/issues) on [github](https://github.com/arunponnusamy/cvlib) if you are facing any difficulty.
+Checkout the github repo to learn more about all the functionalities available in cvlib. 
 
 ### License
 cvlib is released under MIT License.
 
-### Contact
-Feel free to drop an [email](http://arunponnusamy.com/contact) or reach out on [Twitter](twitter.com/ponnusamy_arun). 
+### Help
+For bugs and feature requests, feel free to file a GitHub issue. (Make sure to check whether the issue has been filed already)
+
+For usage related how-to questions, please create a new question on [StackOverflow](https://stackoverflow.com/questions/tagged/cvlib) with the tag `cvlib`.
