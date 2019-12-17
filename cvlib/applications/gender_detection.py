@@ -2,9 +2,6 @@ import os
 import cv2
 from keras.utils import get_file
 
-initialize = True
-gd = None
-
 class GenderDetection():
 
     def __init__(self):
@@ -35,15 +32,4 @@ class GenderDetection():
         self.net.setInput(blob)
         preds = self.net.forward()
 
-        return (self.labels, preds[0])
-    
-
-def detect_gender(face):
-
-    global initialize, gd
-
-    if initialize:
-        gd = GenderDetection()
-        initialize = False
-        
-    return gd.detect_gender(face)
+        return (self.labels, preds[0])        

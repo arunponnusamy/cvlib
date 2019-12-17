@@ -16,11 +16,13 @@ img = cv2.imread(sys.argv[1])
 # apply face detection
 face, conf = cv.detect_face(img)
 
+padding = 20
+
 # loop through detected faces
 for f in face:
 
-    (startX,startY) = f[0],f[1]
-    (endX,endY) = f[2],f[3]
+    (startX,startY) = max(0, f[0]-padding), max(0, f[1]-padding)
+    (endX,endY) = min(img.shape[1]-1, f[2]+padding), min(img.shape[0]-1, f[3]+padding)
     
     # draw rectangle over face
     cv2.rectangle(img, (startX,startY), (endX,endY), (0,255,0), 2)
