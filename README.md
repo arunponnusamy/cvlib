@@ -63,7 +63,7 @@ Once face is detected, it can be passed on to `detect_gender()` function to reco
 
 `label, confidence = cv.detect_gender(face) `
 
-Underneath `cvlib` is using a [pre-trained](https://github.com/arunponnusamy/gender-detection-keras) keras model to detect gender from face. The accuracy is not so great at this point. It still makes mistakes. Working on adding a more accurate model.
+Underneath `cvlib` is using an AlexNet-like model trained on [Adience dataset](https://talhassner.github.io/home/projects/Adience/Adience-data.html#agegender) by Gil Levi and Tal Hassner for their [CVPR 2015 ](https://talhassner.github.io/home/publication/2015_CVPR) paper.
 
 Checkout `gender_detection.py` in `examples` directory for the complete code.
 
