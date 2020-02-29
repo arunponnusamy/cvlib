@@ -22,6 +22,8 @@ If you are working with GPU, you can install `tensorflow-gpu` package through `p
 
 If you are not sure, just go with the cpu-only `tensorflow` package.
 
+You can also compile OpenCV from source to enable CUDA optimizations for Nvidia GPU.
+
 ### Installing cvlib
 
 `pip install cvlib`
@@ -34,7 +36,6 @@ If you want to build cvlib from source, clone this repository and run the below 
 ```
 git clone https://github.com/arunponnusamy/cvlib.git
 cd cvlib
-python setup.py sdist
 pip install .
 ```
 
@@ -50,6 +51,11 @@ faces, confidences = cv.detect_face(image)
 ```
 Seriously, that's all it takes to do face detection with `cvlib`. Underneath it is using OpenCV's `dnn` module with a pre-trained caffemodel to detect faces.
 
+To enable GPU
+```
+faces, confidences = cv.detect_face(image, enable_gpu=True)
+```
+
 Checkout `face_detection.py` in `examples` directory for the complete code.
 
 ### Sample output :
@@ -61,9 +67,16 @@ Once face is detected, it can be passed on to `detect_gender()` function to reco
 
 ### Example
 
-`label, confidence = cv.detect_gender(face) `
+```
+label, confidence = cv.detect_gender(face)
+```
 
 Underneath `cvlib` is using an AlexNet-like model trained on [Adience dataset](https://talhassner.github.io/home/projects/Adience/Adience-data.html#agegender) by Gil Levi and Tal Hassner for their [CVPR 2015 ](https://talhassner.github.io/home/publication/2015_CVPR) paper.
+
+To enable GPU
+```
+label, confidence = cv.detect_gender(face, enable_gpu=True)
+```
 
 Checkout `gender_detection.py` in `examples` directory for the complete code.
 
@@ -85,6 +98,11 @@ bbox, label, conf = cv.detect_common_objects(img)
 output_image = draw_bbox(img, bbox, label, conf)
 ```
 Underneath it uses [YOLOv3](https://pjreddie.com/darknet/yolo/) model trained on [COCO dataset](http://cocodataset.org/) capable of detecting 80 [common objects](https://github.com/arunponnusamy/object-detection-opencv/blob/master/yolov3.txt) in context.
+
+To enable GPU
+```
+bbox, label, conf = cv.detect_common_objects(img, enable_gpu=True)
+```
 
 Checkout `object_detection.py` in `examples` directory for the complete code.
 
