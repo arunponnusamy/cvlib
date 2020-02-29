@@ -1,6 +1,6 @@
 import os
 import cv2
-from keras.utils import get_file
+from tensorflow.keras.utils import get_file
 
 initialize = True
 gd = None
@@ -28,17 +28,22 @@ class GenderDetection():
         self.net = cv2.dnn.readNetFromCaffe(self.proto, self.model)
 
 
-    def detect_gender(self, face):
+    def detect_gender(self, face, enable_gpu):
 
         blob = cv2.dnn.blobFromImage(face, 1.0, (227,227), self.mean,
                                      swapRB=False)
+
+        if enable_gpu:
+            self.net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+            self.net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+    
         self.net.setInput(blob)
         preds = self.net.forward()
 
         return (self.labels, preds[0])
     
 
-def detect_gender(face):
+def detect_gender(face, enable_gpu=False):
 
     global initialize, gd
 
@@ -46,4 +51,4 @@ def detect_gender(face):
         gd = GenderDetection()
         initialize = False
         
-    return gd.detect_gender(face)
+    return gd.detect_gender(face, enable_gpu)

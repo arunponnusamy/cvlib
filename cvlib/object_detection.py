@@ -55,7 +55,7 @@ def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf=False):
 
     return img
     
-def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov3', gpu_enabled=False):
+def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov3', enable_gpu=False):
 
     Height, Width = image.shape[:2]
     scale = 0.00392
@@ -93,12 +93,12 @@ def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov3',
     if initialize:
         classes = populate_class_labels()
         net = cv2.dnn.readNet(weights_file_abs_path, config_file_abs_path)
-        # enables opencv dnn module to use CUDA on Nvidia card instead of cpu
-        if gpu_enabled == True:
-            net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
-            net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
-
         initialize = False
+
+    # enables opencv dnn module to use CUDA on Nvidia card instead of cpu
+    if enable_gpu:
+        net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+        net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
 
     net.setInput(blob)
 

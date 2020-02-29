@@ -12,7 +12,7 @@ prototxt = None
 caffemodel = None
 net = None
 
-def detect_face(image, threshold=0.5):
+def detect_face(image, threshold=0.5, enable_gpu=False):
     
     if image is None:
         return None
@@ -32,8 +32,14 @@ def detect_face(image, threshold=0.5):
         
         # read pre-trained wieights
         net = cv2.dnn.readNetFromCaffe(prototxt, caffemodel)
+    
         is_initialized = True
 
+    # enable GPU if requested
+    if enable_gpu:
+        net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+        net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+    
     (h, w) = image.shape[:2]
 
     # preprocessing input image
