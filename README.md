@@ -147,7 +147,7 @@ For usage related how-to questions, please create a new question on [StackOverfl
 
 ## Citation
 If you find cvlib helpful in your work, please cite the following
-```
+```BibTex
 @misc{ar2018cvlib,
   author =       {Arun Ponnusamy},
   title =        {cvlib},
