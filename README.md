@@ -144,3 +144,15 @@ cvlib is released under MIT license.
 For bugs and feature requests, feel free to file a [GitHub issue](https://github.com/arunponnusamy/cvlib/issues). (Make sure to check whether the issue has been filed already) 
 
 For usage related how-to questions, please create a new question on [StackOverflow](https://stackoverflow.com/questions/tagged/cvlib) with the tag `cvlib`.
+
+## Citation
+If you find cvlib helpful in your work, please cite the following
+```
+@misc{ar2018cvlib,
+  author =       {Arun Ponnusamy},
+  title =        {cvlib},
+  howpublished = {\url{https://github.com/arunponnusamy/cvlib}},
+  year =         {2018}
+}
+```
+
