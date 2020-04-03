@@ -150,7 +150,7 @@ If you find cvlib helpful in your work, please cite the following
 ```BibTex
 @misc{ar2018cvlib,
   author =       {Arun Ponnusamy},
-  title =        {cvlib},
+  title =        {cvlib - high level Computer Vision library for Python},
   howpublished = {\url{https://github.com/arunponnusamy/cvlib}},
   year =         {2018}
 }
