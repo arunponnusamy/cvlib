@@ -43,7 +43,7 @@ def detect_face(image, threshold=0.5, enable_gpu=False):
     (h, w) = image.shape[:2]
 
     # preprocessing input image
-    blob = cv2.dnn.blobFromImage(cv2.resize(image, (300,300)), 1.0, (300,300), (104.0,177.0,123.0))
+    blob = cv2.dnn.blobFromImage(image, 1.0, (300,300), (104.0,177.0,123.0))
     net.setInput(blob)
 
     # apply face detection
