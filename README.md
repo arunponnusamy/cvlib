@@ -1,7 +1,7 @@
 [![Downloads](http://pepy.tech/badge/cvlib)](http://pepy.tech/project/cvlib)  [![Gitter](https://badges.gitter.im/arunponnusamy/cvlib.svg)](https://gitter.im/arunponnusamy/cvlib?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)  [![PyPI](https://img.shields.io/pypi/v/cvlib.svg?color=blue)](https://pypi.org/project/cvlib/)
 
 # cvlib
-A high level easy-to-use open source Computer Vision library for Python.
+A simple, high level, easy-to-use open source Computer Vision library for Python.
 
 ## Installation
 
@@ -113,6 +113,22 @@ Checkout `object_detection.py` in `examples` directory for the complete code.
 bbox, label, conf = cv.detect_common_objects(img, confidence=0.25, model='yolov3-tiny')
 ```
 Check out the [example](examples/object_detection_webcam_yolov3_tiny.py) to learn more.
+
+### Custom trained YOLO weights
+To run inference with custom trained YOLOv3 weights try the following
+```
+from cvlib.object_detection import YOLO
+
+yolo = YOLO(weights, config, labels)
+bbox, label, conf = yolo.detect_objects(img)
+yolo.draw_bbox(img, bbox, label, conf)
+```
+To enable GPU
+```
+bbox, label, conf = yolo.detect_objects(img, enable_gpu=True)
+```
+
+Checkout the [example](examples/yolo_custom_weights_inference.py) to learn more.
 
 ### Sample output :
 
