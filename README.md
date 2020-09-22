@@ -153,6 +153,9 @@ frames = cv.get_frames('~/Downloads/demo.mp4', '~/Downloads/demo_frames/')
 cv.animate(frames, '~/Documents/frames.gif')
 ```
 
+## Sponsor
+Developing and maintaining open source projects takes a lot of time and effort. If you are getting value out of this project, consider supporting my work by simply [buying me a coffee](https://buymeacoffee.com/arunponnusamy) (one time or every month).
+
 ## License
 cvlib is released under MIT license.
 
