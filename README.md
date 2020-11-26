@@ -164,6 +164,9 @@ For bugs and feature requests, feel free to file a [GitHub issue](https://github
 
 For usage related how-to questions, please create a new question on [StackOverflow](https://stackoverflow.com/questions/tagged/cvlib) with the tag `cvlib`.
 
+## Community
+Join the official [Discord Server](https://discord.gg/CHHQJZGWfh) to talk about all things cvlib.
+
 ## Citation
 If you find cvlib helpful in your work, please cite the following
 ```BibTex
