@@ -31,7 +31,15 @@ def get_output_layers(net):
     return output_layers
 
 
-def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf=False):
+def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf:bool=False):
+    """A method to apply a box to the image
+   Args:
+    img: An image in the form of a numPy array
+    bbox: An array of bounding boxes
+    labels: An array of labels
+    colors: 
+    write_conf: An option to write the confidence to the image
+    """
 
     global COLORS
     global classes
@@ -55,7 +63,16 @@ def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf=False):
 
     return img
     
-def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov3', enable_gpu=False):
+def detect_common_objects(image, confidence:float=0.5, nms_thresh:float=0.3, model:str='yolov3', enable_gpu:bool=False):
+    """A method to detect common objects
+    Args:
+        image: A colour image in a numpy array
+        confidence: 
+        nms_thresh:
+        model: The detection model to be used
+        enable_gpu: A boolean to set whether the GPU will be used
+
+    """
 
     Height, Width = image.shape[:2]
     scale = 0.00392
