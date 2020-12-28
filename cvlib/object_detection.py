@@ -1,6 +1,8 @@
 import cv2
 import os
 import numpy as np
+import warnings
+import random
 from .utils import download_file
 
 initialize = True
@@ -37,7 +39,7 @@ def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf:bool=False)
     img: An image in the form of a numPy array
     bbox: An array of bounding boxes
     labels: An array of labels
-    colors: 
+    colors: An array of colours the length of the number of targets(80)
     write_conf: An option to write the confidence to the image
     """
 
@@ -48,11 +50,14 @@ def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf:bool=False)
         classes = populate_class_labels()
     
     for i, label in enumerate(labels):
-
-        if colors is None:
-            color = COLORS[classes.index(label)]            
+        if label in classes:
+            if colors is None:
+                color = COLORS[classes.index(label)]            
+            else:
+                color = colors[classes.index(label)]
         else:
-            color = colors[classes.index(label)]
+            warnings.warn('non standard label used')
+            color=COLORS[random.randint(0,80)]#not the best solution but a small improvement
 
         if write_conf:
             label += ' ' + str(format(confidence[i] * 100, '.2f')) + '%'
