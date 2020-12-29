@@ -48,6 +48,7 @@ def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf:bool=False)
         classes = populate_class_labels()
     
     for i, label in enumerate(labels):
+
         if colors is None:
             color = COLORS[classes.index(label)]            
         else:
