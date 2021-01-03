@@ -1,4 +1,4 @@
-[![Downloads](http://pepy.tech/badge/cvlib)](http://pepy.tech/project/cvlib) [![PyPI](https://img.shields.io/pypi/v/cvlib.svg?color=blue)](https://pypi.org/project/cvlib/)
+[![Downloads](https://static.pepy.tech/personalized-badge/cvlib?period=total&units=international_system&left_color=grey&right_color=blue&left_text=pip%20installs)](https://pepy.tech/project/cvlib) [![PyPI](https://img.shields.io/pypi/v/cvlib.svg?color=blue)](https://pypi.org/project/cvlib/)
 
 # cvlib
 A simple, high level, easy-to-use open source Computer Vision library for Python.
