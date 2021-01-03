@@ -31,7 +31,15 @@ def get_output_layers(net):
     return output_layers
 
 
-def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf=False):
+def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf:bool=False):
+    """A method to apply a box to the image
+    Args:
+        img: An image in the form of a numPy array
+        bbox: An array of bounding boxes
+        labels: An array of labels
+        colors: An array of colours the length of the number of targets(80)
+        write_conf: An option to write the confidences to the image
+    """
 
     global COLORS
     global classes
@@ -55,7 +63,16 @@ def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf=False):
 
     return img
     
-def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov3', enable_gpu=False):
+def detect_common_objects(image, confidence:float=0.5, nms_thresh:float=0.3, model:str='yolov3', enable_gpu:bool=False):
+    """A method to detect common objects
+    Args:
+        image: A colour image in a numpy array
+        confidence: A value to filter out objects recognised to a lower confidence score
+        nms_thresh: An NMS value
+        model: The detection model to be used, supported models are: yolov3, yolov3-tiny, yolov4, yolov4-tiny
+        enable_gpu: A boolean to set whether the GPU will be used
+
+    """
 
     Height, Width = image.shape[:2]
     scale = 0.00392
@@ -70,6 +87,19 @@ def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov3',
         weights_url = 'https://pjreddie.com/media/files/yolov3-tiny.weights'
         blob = cv2.dnn.blobFromImage(image, scale, (416,416), (0,0,0), True, crop=False)
 
+    elif model == 'yolov4':#under development
+        config_file_name = 'yolov4.cfg'
+        cfg_url = 'https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4.cfg'
+        weights_file_name = 'yolov4.weights'
+        weights_url = 'https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights'
+        blob = cv2.dnn.blobFromImage(image, scale, (416,416), (0,0,0), True, crop=False)
+
+    elif model == 'yolov4-tiny':
+        config_file_name = 'yolov4-tiny.cfg'
+        cfg_url = 'https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4-tiny.cfg'
+        weights_file_name = 'yolov4-tiny.weights'
+        weights_url = 'https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.weights'
+        blob = cv2.dnn.blobFromImage(image, scale, (416,416), (0,0,0), True, crop=False)      
 
     else:
         config_file_name = 'yolov3.cfg'
