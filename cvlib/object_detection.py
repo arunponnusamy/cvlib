@@ -31,7 +31,7 @@ def get_output_layers(net):
     return output_layers
 
 
-def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf:bool=False):
+def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf=False):
     """A method to apply a box to the image
     Args:
         img: An image in the form of a numPy array
@@ -63,7 +63,7 @@ def draw_bbox(img, bbox, labels, confidence, colors=None, write_conf:bool=False)
 
     return img
     
-def detect_common_objects(image, confidence:float=0.5, nms_thresh:float=0.3, model:str='yolov3', enable_gpu:bool=False):
+def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov4', enable_gpu=False):
     """A method to detect common objects
     Args:
         image: A colour image in a numpy array
@@ -87,7 +87,7 @@ def detect_common_objects(image, confidence:float=0.5, nms_thresh:float=0.3, mod
         weights_url = 'https://pjreddie.com/media/files/yolov3-tiny.weights'
         blob = cv2.dnn.blobFromImage(image, scale, (416,416), (0,0,0), True, crop=False)
 
-    elif model == 'yolov4':#under development
+    elif model == 'yolov4':
         config_file_name = 'yolov4.cfg'
         cfg_url = 'https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4.cfg'
         weights_file_name = 'yolov4.weights'
