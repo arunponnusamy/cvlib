@@ -97,7 +97,7 @@ bbox, label, conf = cv.detect_common_objects(img)
 
 output_image = draw_bbox(img, bbox, label, conf)
 ```
-Underneath it uses [YOLOv3](https://pjreddie.com/darknet/yolo/) model trained on [COCO dataset](http://cocodataset.org/) capable of detecting 80 [common objects](https://github.com/arunponnusamy/object-detection-opencv/blob/master/yolov3.txt) in context.
+Underneath it uses [YOLOv4](https://github.com/AlexeyAB/darknet) model trained on [COCO dataset](http://cocodataset.org/) capable of detecting 80 [common objects](https://github.com/arunponnusamy/object-detection-opencv/blob/master/yolov3.txt) in context.
 
 To enable GPU
 ```python
@@ -107,15 +107,17 @@ bbox, label, conf = cv.detect_common_objects(img, enable_gpu=True)
 Checkout `object_detection.py` in `examples` directory for the complete code.
 
 ### Real time object detection
-`YOLOv3` is actually a heavy model to run on CPU. If you are working with real time webcam / video feed and doesn't have GPU, try using `tiny yolo` which is a smaller version of the original YOLO model. It's significantly fast but less accurate.
+`YOLOv4` is actually a heavy model to run on CPU. If you are working with real time webcam / video feed and doesn't have GPU, try using `tiny yolo` which is a smaller version of the original YOLO model. It's significantly fast but less accurate.
 
 ```python
-bbox, label, conf = cv.detect_common_objects(img, confidence=0.25, model='yolov3-tiny')
+bbox, label, conf = cv.detect_common_objects(img, confidence=0.25, model='yolov4-tiny')
 ```
-Check out the [example](examples/object_detection_webcam_yolov3_tiny.py) to learn more.
+Check out the [example](examples/object_detection_webcam.py) to learn more. 
+
+Other supported models: YOLOv3, YOLOv3-tiny.
 
 ### Custom trained YOLO weights
-To run inference with custom trained YOLOv3 weights try the following
+To run inference with custom trained YOLOv3/v4 weights try the following
 ```python
 from cvlib.object_detection import YOLO
 
