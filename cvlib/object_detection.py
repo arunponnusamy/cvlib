@@ -26,7 +26,7 @@ def get_output_layers(net):
     
     layer_names = net.getLayerNames()
     
-    output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
+    output_layers = [layer_names[i- 1] for i in net.getUnconnectedOutLayers()]
 
     return output_layers
 
@@ -162,7 +162,7 @@ def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov4',
     conf = []
 
     for i in indices:
-        i = i[0]
+        i = indices[0]
         box = boxes[i]
         x = box[0]
         y = box[1]
@@ -194,7 +194,7 @@ class YOLO:
     
         layer_names = self.net.getLayerNames()
     
-        self.output_layers = [layer_names[i[0] - 1] for i in self.net.getUnconnectedOutLayers()]
+        self.output_layers = [layer_names[i - 1] for i in self.net.getUnconnectedOutLayers()]
 
 
     def detect_objects(self, image, confidence=0.5, nms_thresh=0.3,
