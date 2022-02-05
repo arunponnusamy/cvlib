@@ -162,7 +162,6 @@ def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov4',
     conf = []
 
     for i in indices:
-        i = indices[0]
         box = boxes[i]
         x = box[0]
         y = box[1]
@@ -242,7 +241,6 @@ class YOLO:
         conf = []
 
         for i in indices:
-            i = i[0]
             box = boxes[i]
             x = box[0]
             y = box[1]
