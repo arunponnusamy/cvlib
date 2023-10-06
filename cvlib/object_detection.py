@@ -122,7 +122,7 @@ def detect_common_objects(image, confidence=0.5, nms_thresh=0.3, model='yolov4',
 
     if initialize:
         classes = populate_class_labels()
-        net = cv2.dnn.readNet(weights_file_abs_path, config_file_abs_path)
+        net = cv2.dnn.readNet(config_file_abs_path, weights_file_abs_path)
         initialize = False
 
     # enables opencv dnn module to use CUDA on Nvidia card instead of cpu
