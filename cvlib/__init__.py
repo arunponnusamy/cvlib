@@ -7,3 +7,4 @@ from .face_detection import detect_face
 from .object_detection import detect_common_objects
 from .gender_detection import detect_gender
 from .utils import get_frames, animate
+from .flexible_detector import detect
